@@ -184,20 +184,26 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
-      {/* Background Parallax RGBA Orbs & Mesh Grid */}
+      {/* Multi-color Vibrant Parallax RGBA Orbs & Mesh Grid */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Cyan RGBA Glowing Orb Top Left */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[rgba(14,165,233,0.15)] blur-[120px] animate-pulse" />
+        {/* Red / Rose RGBA Glowing Orb Top Left */}
+        <div className="absolute -top-32 -left-32 w-[32rem] h-[32rem] rounded-full bg-[rgba(244,63,94,0.14)] blur-[140px] animate-pulse" />
+
+        {/* Hot Pink / Fuchsia RGBA Glowing Orb Top Center */}
+        <div className="absolute top-10 left-1/3 w-[28rem] h-[28rem] rounded-full bg-[rgba(236,72,153,0.12)] blur-[130px]" />
         
-        {/* Purple RGBA Glowing Orb Middle Right */}
-        <div className="absolute top-1/3 -right-32 w-[30rem] h-[30rem] rounded-full bg-[rgba(168,85,247,0.12)] blur-[140px]" />
+        {/* Yellow / Amber RGBA Glowing Orb Middle Right */}
+        <div className="absolute top-1/4 -right-20 w-[30rem] h-[30rem] rounded-full bg-[rgba(245,158,11,0.13)] blur-[150px] animate-pulse" />
         
-        {/* Blue/Cyan RGBA Glowing Orb Bottom Left */}
-        <div className="absolute -bottom-40 left-1/4 w-[36rem] h-[36rem] rounded-full bg-[rgba(56,189,248,0.1)] blur-[160px]" />
+        {/* Electric Cyan RGBA Glowing Orb Center Left */}
+        <div className="absolute top-1/2 -left-20 w-[30rem] h-[30rem] rounded-full bg-[rgba(6,182,212,0.12)] blur-[140px]" />
+
+        {/* Deep Violet / Purple RGBA Glowing Orb Bottom Right */}
+        <div className="absolute -bottom-20 right-10 w-[36rem] h-[36rem] rounded-full bg-[rgba(139,92,246,0.15)] blur-[160px]" />
 
         {/* Subtle Parallax Mesh Grid Overlay */}
         <div 
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
             backgroundSize: '24px 24px',
