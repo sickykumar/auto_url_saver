@@ -1,4 +1,4 @@
-# Auto Domain Saver (Option B: Domain-based Auto Save)
+# Auto Domain Saver
 
 A complete end-to-end system for automatically detecting and saving website domains as you browse, complete with a Chrome/Edge Manifest V3 extension, Node.js + Express backend with SSRF security and metadata extraction, and a sleek React + Tailwind CSS v3 web dashboard.
 

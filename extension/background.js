@@ -87,7 +87,7 @@ async function processTabDomain(url) {
   }
 }
 
-// Listen to web navigation completion (Option B: Root Domain Auto Save + Visited URLs tracking)
+// Listen to web navigation completion (Root Domain Auto Save + Visited URLs tracking)
 chrome.webNavigation.onCompleted.addListener((details) => {
   if (details.frameId === 0 && details.url) {
     processTabDomain(details.url);

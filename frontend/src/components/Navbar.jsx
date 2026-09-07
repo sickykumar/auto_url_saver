@@ -23,9 +23,6 @@ export const Navbar = ({
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-lg font-extrabold tracking-tight text-white">Auto Domain Saver</h1>
-              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-950 text-brand-400 border border-brand-800/60">
-                Option B
-              </span>
             </div>
             <p className="text-xs text-slate-400">Save once per domain automatically</p>
           </div>
