@@ -91,6 +91,20 @@ body {
   justify-content: space-between;
 }
 
+.domain-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.domain-favicon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  object-fit: contain;
+  background-color: #1e293b;
+}
+
 .domain-title {
   font-weight: 700;
   font-size: 13px;

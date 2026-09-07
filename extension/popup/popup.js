@@ -83,6 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (domainTitle) domainTitle.textContent = rootDomain;
         if (domainText) domainText.textContent = rootDomain;
 
+        const domainFavicon = document.getElementById('domainFavicon');
+        if (domainFavicon) {
+          const tabFavicon = tabs[0].favIconUrl;
+          if (tabFavicon && !tabFavicon.startsWith('chrome://')) {
+            domainFavicon.src = tabFavicon;
+          } else {
+            domainFavicon.src = `https://www.google.com/s2/favicons?domain=${rootDomain}&sz=128`;
+          }
+          domainFavicon.onerror = () => {
+            domainFavicon.src = `https://www.google.com/s2/favicons?domain=${rootDomain}&sz=128`;
+          };
+        }
+
+
         // Check duplicate with backend
         const res = await fetch(`${API_BASE}/check`, {
           method: 'POST',
