@@ -183,10 +183,30 @@ export function App() {
   }
 
   return (
-    <div className="min-h-screen bg-dark-bg text-slate-100 flex flex-col font-sans selection:bg-brand-500">
-      <Toaster position="bottom-right" toastOptions={{ style: { background: '#111827', color: '#fff', border: '1px solid #1f293d' } }} />
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
+      {/* Background Parallax RGBA Orbs & Mesh Grid */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Cyan RGBA Glowing Orb Top Left */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[rgba(14,165,233,0.15)] blur-[120px] animate-pulse" />
+        
+        {/* Purple RGBA Glowing Orb Middle Right */}
+        <div className="absolute top-1/3 -right-32 w-[30rem] h-[30rem] rounded-full bg-[rgba(168,85,247,0.12)] blur-[140px]" />
+        
+        {/* Blue/Cyan RGBA Glowing Orb Bottom Left */}
+        <div className="absolute -bottom-40 left-1/4 w-[36rem] h-[36rem] rounded-full bg-[rgba(56,189,248,0.1)] blur-[160px]" />
 
-      {/* Header Bar */}
+        {/* Subtle Parallax Mesh Grid Overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+            backgroundSize: '24px 24px',
+          }}
+        />
+      </div>
+
+      <Toaster position="top-right" toastOptions={{ duration: 4000 }} />
+
       <Navbar
         search={search}
         setSearch={setSearch}
@@ -198,7 +218,7 @@ export function App() {
       />
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 lg:px-8 py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 lg:px-8 py-8 relative z-10">
         {/* Filter Controls */}
         <TagFilter
           selectedTag={selectedTag}
