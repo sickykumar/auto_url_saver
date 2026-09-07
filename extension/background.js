@@ -1,4 +1,22 @@
-const API_BASE = 'http://localhost:5000/api/domains';
+// Production Render API URL with chrome.storage override support
+const DEFAULT_API_BASE = 'https://auto-url-saver.onrender.com/api/domains';
+let API_BASE = DEFAULT_API_BASE;
+
+// Load custom API URL from extension storage if set by user
+if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+  chrome.storage.sync.get(['backendUrl'], (result) => {
+    if (result.backendUrl) {
+      API_BASE = result.backendUrl.replace(/\/$/, '') + '/api/domains';
+    }
+  });
+
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'sync' && changes.backendUrl) {
+      API_BASE = changes.backendUrl.newValue.replace(/\/$/, '') + '/api/domains';
+    }
+  });
+}
+
 
 // Local cache of page URLs processed in this extension session
 const processedUrls = new Set();

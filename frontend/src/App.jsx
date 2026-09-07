@@ -9,7 +9,7 @@ import { Loader, SkeletonCard } from './components/ui/Loader';
 import { EmptyState } from './components/ui/EmptyState';
 import { ErrorState, ErrorPage } from './components/ui/ErrorState';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/domains';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://auto-url-saver.onrender.com/api/domains';
 
 export function App() {
   const [domains, setDomains] = useState([]);

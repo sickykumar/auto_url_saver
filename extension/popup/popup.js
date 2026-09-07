@@ -1,4 +1,14 @@
-const API_BASE = 'http://localhost:5000/api/domains';
+const DEFAULT_API_BASE = 'https://auto-url-saver.onrender.com/api/domains';
+let API_BASE = DEFAULT_API_BASE;
+
+if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+  chrome.storage.sync.get(['backendUrl'], (result) => {
+    if (result.backendUrl) {
+      API_BASE = result.backendUrl.replace(/\/$/, '') + '/api/domains';
+    }
+  });
+}
+
 
 function extractRootDomain(hostname) {
   if (!hostname) return '';
