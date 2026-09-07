@@ -28,8 +28,6 @@ export const DomainCard = ({ domain, onUpdate, onDelete, onViewHistory }) => {
     if (t.includes('learn')) return 'learning';
     return 'default';
   };
-
-  return (
   return (
     <Card className="flex flex-col h-full group relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-cyan-500/20 bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 hover:border-slate-700/90 rounded-3xl">
       {/* Top Multi-color Gradient Border Strip */}
