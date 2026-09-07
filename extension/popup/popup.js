@@ -82,4 +82,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       domainStatusMsg.style.color = '#f87171';
     }
   });
+
+  const openDashboardBtn = document.getElementById('openDashboardBtn');
+  if (openDashboardBtn) {
+    openDashboardBtn.addEventListener('click', () => {
+      if (typeof chrome !== 'undefined' && chrome.tabs && chrome.tabs.create) {
+        chrome.tabs.create({ url: 'https://urlsaver.sickykumar.in' });
+      } else {
+        window.open('https://urlsaver.sickykumar.in', '_blank');
+      }
+    });
+  }
 });
+

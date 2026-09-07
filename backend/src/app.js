@@ -63,9 +63,34 @@ if (store.length === 0) {
   );
 }
 
-// Middleware
-app.use(cors({ origin: '*' }));
+// Dynamic CORS configuration allowing custom domains, localhost, and Chrome Extensions
+const allowedOrigins = [
+  'https://urlsaver.sickykumar.in',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:5173'
+];
+
+if (process.env.CORS_ORIGIN && process.env.CORS_ORIGIN !== '*') {
+  allowedOrigins.push(...process.env.CORS_ORIGIN.split(',').map(s => s.trim()));
+}
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, or server-to-server)
+    if (!origin) return callback(null, true);
+    // Allow Chrome extensions
+    if (origin.startsWith('chrome-extension://')) return callback(null, true);
+    // Allow configured origins
+    if (process.env.CORS_ORIGIN === '*' || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(null, true); // Permissive fallback for public backend API
+  },
+  credentials: true
+}));
 app.use(express.json());
+
 
 // Routes
 app.use('/api/domains', domainRoutes);
